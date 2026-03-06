@@ -1,0 +1,9 @@
+.gradio/
+.tools-venv/
+.venv/
+.venv-old-*/
+.venv-py313-broken-*/
+__pycache__/
+outputs/
+tmp-*
+13-open-vocabulary-detection-solution/detection-test.png

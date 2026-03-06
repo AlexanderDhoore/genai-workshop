@@ -1,4 +1,4 @@
-# Practical Generative AI Workshop
+# Hands-On Generative AI Workshop with Local Models: From Local LLMs to Multimodal AI Applications
 
 Welcome to the workshop.
 

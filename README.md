@@ -84,31 +84,6 @@ Most chapters are designed so that you need to make one or two small fixes befor
 That is on purpose.
 The goal is not only to watch AI, but to understand a little of how the code fits together.
 
-## Suggested half-day route
-
-If you only have one half-day, focus on the core path first:
-
-```text
-01 -> 02 -> 03 -> 04 -> 05 -> 06 -> 07
-```
-
-That gives students the main story:
-
-- run a local language model
-- steer it with prompts
-- build a small generation pipeline
-- wrap it in a web app
-- try multimodal input and image generation
-- finish with an interactive AI product
-
-If there is extra time, the strongest optional chapter is:
-
-```text
-11-tool-calling
-```
-
-Tool calling is a useful bridge from “chatbot” to “agent”, and it connects well to real software development.
-
 ## Core workshop path
 
 These are the main chapters:

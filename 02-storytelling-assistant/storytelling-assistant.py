@@ -12,6 +12,7 @@ USER_PROMPT = ""
 
 assert USER_PROMPT.strip(), "Fill in USER_PROMPT before running the script."
 
+# The system prompt sets the role. The user prompt sets the actual task.
 messages = [
     {"role": "system", "content": SYSTEM_PROMPT},
     {"role": "user", "content": ""},  # TODO: send USER_PROMPT to the model

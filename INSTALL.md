@@ -106,8 +106,7 @@ These chapters use Hugging Face models, not Ollama models:
 - chapter 8 audio transcription
 - chapter 9 text to speech
 - chapter 10 music generation
-- chapter 11 image editing and inpainting
-- chapter 13 open-vocabulary object detection
+- chapter 12 open-vocabulary object detection
 
 To avoid first-run downloads during class, warm those caches on the template VM:
 
@@ -128,15 +127,6 @@ python - <<'PY'
 import torch
 from diffusers import StableDiffusionXLPipeline
 StableDiffusionXLPipeline.from_pretrained("segmind/SSD-1B", torch_dtype=torch.bfloat16)
-PY
-
-python - <<'PY'
-import torch
-from diffusers import AutoPipelineForInpainting
-AutoPipelineForInpainting.from_pretrained(
-    "diffusers/stable-diffusion-xl-1.0-inpainting-0.1",
-    torch_dtype=torch.bfloat16,
-)
 PY
 
 python - <<'PY'
@@ -217,3 +207,15 @@ Chapter 1 verification target:
 source /root/genai-workshop/.venv/bin/activate
 python /root/genai-workshop/01-first-language-model-solution/first-local-llm.py
 ```
+
+Before cloning a VM template for students, also do a quick smoke check:
+
+```bash
+cd /root/genai-workshop
+source .venv/bin/activate
+python -m compileall .
+ollama list
+nvidia-smi
+```
+
+That does not prove every heavy model is fully warmed, but it catches broken Python syntax, missing Ollama models, and GPU visibility problems quickly.

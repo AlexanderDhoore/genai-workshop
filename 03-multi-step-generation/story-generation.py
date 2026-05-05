@@ -11,6 +11,7 @@ assert STORY_IDEA.strip(), "Fill in STORY_IDEA before running the script."
 
 
 def clean_model_text(text: str) -> str:
+    # Some models expose reasoning before </think>; keep the student output focused.
     if "</think>" in text:
         text = text.split("</think>", 1)[1]
     return text.strip()
@@ -81,6 +82,7 @@ Now write part {i}: {abstract}
     chapter_text = clean_model_text(response_chapter["message"]["content"])
 
     # TODO: Accumulate the story so far by appending this chapter.
+    # This is the "memory" of the pipeline; the model only sees what we send it.
     # full_story_so_far = ...
 
     assert full_story_so_far.strip(), "Accumulate the story text before continuing."

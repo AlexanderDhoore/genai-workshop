@@ -9,6 +9,7 @@ SYSTEM_PROMPT = (
 
 USER_PROMPT = "A lonely robot discovers a hidden village in the forest."
 
+# The system prompt sets the role. The user prompt sets the actual task.
 messages = [
     {"role": "system", "content": SYSTEM_PROMPT},
     {"role": "user", "content": USER_PROMPT},

@@ -97,6 +97,7 @@ first_response = ollama.chat(
     model=MODEL_NAME,
     think=False,
     messages=messages,
+    # The model can only choose tools that our Python code explicitly exposes.
     tools=[],  # TODO: pass the weather tool to the model
 )
 
@@ -108,6 +109,7 @@ assert tool_calls, "The model did not call a tool."
 for tool_call in tool_calls:
     tool_result = get_current_weather(**tool_call.function.arguments)
 
+    # The model does not magically see Python return values; we add them to the chat.
     # TODO: append the tool result as a tool message
 
 final_response = ollama.chat(

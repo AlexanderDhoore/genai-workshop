@@ -6,6 +6,16 @@ Now we make the next step, we learn how to **steer** it.
 This chapter is about **prompting**.
 Prompting means giving the model instructions in a smart way so it behaves how you want.
 
+So chapter 1 was about **where the model runs**:
+
+- locally
+- through Ollama
+- controlled from Python
+
+This chapter is about **how the same model changes personality**.
+We are not downloading a new model or training anything.
+We are learning that the words around the user request can completely change the product feeling.
+
 The key idea is that prompts have structure:
 
 - the `system` prompt tells the model what kind of assistant it should be

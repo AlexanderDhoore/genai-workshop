@@ -39,7 +39,7 @@ That tool uses the free Open-Meteo APIs:
 
 Open:
 
-[`weather-tool-calling.py`](/root/genai-workshop/12-tool-calling/weather-tool-calling.py)
+[`weather-tool-calling.py`](/root/genai-workshop/11-tool-calling/weather-tool-calling.py)
 
 ## Step 2, look at the weather tool
 
@@ -85,7 +85,7 @@ Replace it with a message that contains:
 ## Step 4, run the script
 
 ```bash
-/root/genai-workshop/.venv/bin/python /root/genai-workshop/12-tool-calling/weather-tool-calling.py
+/root/genai-workshop/.venv/bin/python /root/genai-workshop/11-tool-calling/weather-tool-calling.py
 ```
 
 ## What to try

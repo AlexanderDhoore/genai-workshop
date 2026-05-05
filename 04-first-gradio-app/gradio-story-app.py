@@ -9,6 +9,7 @@ SYSTEM_PROMPT = (
 
 
 def generate_story(prompt: str) -> str:
+    # Gradio calls this normal Python function whenever the user presses submit.
     if not prompt.strip():
         return "Please enter a story idea first."
 

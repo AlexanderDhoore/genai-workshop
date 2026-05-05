@@ -15,7 +15,10 @@ def detect_and_draw(image, text_prompt: str):
     if image is None:
         return None
 
-    prompt = ""  # TODO: normalize the user prompt for Grounding DINO
+    # Grounding DINO treats this text like a search query inside the image.
+    prompt = text_prompt.strip().lower()
+    if prompt and not prompt.endswith("."):
+        prompt += "."
 
     inputs = processor(images=image, text=prompt, return_tensors="pt").to(DEVICE)
 

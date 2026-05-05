@@ -41,7 +41,7 @@ pineapple. apple. mango.
 
 Open:
 
-[`open-vocabulary-detection-app.py`](/root/genai-workshop/13-open-vocabulary-detection/open-vocabulary-detection-app.py)
+[`open-vocabulary-detection-app.py`](/root/genai-workshop/12-open-vocabulary-detection/open-vocabulary-detection-app.py)
 
 ## Step 2, fix the TODO
 
@@ -58,7 +58,7 @@ Replace it so the script uses the text from the textbox, converts it to lowercas
 ## Step 3, run the script
 
 ```bash
-/root/genai-workshop/.venv/bin/python /root/genai-workshop/13-open-vocabulary-detection/open-vocabulary-detection-app.py
+/root/genai-workshop/.venv/bin/python /root/genai-workshop/12-open-vocabulary-detection/open-vocabulary-detection-app.py
 ```
 
 Then open:

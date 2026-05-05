@@ -14,7 +14,7 @@ By the end of the workshop, you will have built small examples with:
 - local language models
 - storytelling and prompting
 - image understanding
-- image generation and editing
+- image generation
 - speech and music
 - interactive AI apps
 
@@ -84,6 +84,31 @@ Most chapters are designed so that you need to make one or two small fixes befor
 That is on purpose.
 The goal is not only to watch AI, but to understand a little of how the code fits together.
 
+## Suggested half-day route
+
+If you only have one half-day, focus on the core path first:
+
+```text
+01 -> 02 -> 03 -> 04 -> 05 -> 06 -> 07
+```
+
+That gives students the main story:
+
+- run a local language model
+- steer it with prompts
+- build a small generation pipeline
+- wrap it in a web app
+- try multimodal input and image generation
+- finish with an interactive AI product
+
+If there is extra time, the strongest optional chapter is:
+
+```text
+11-tool-calling
+```
+
+Tool calling is a useful bridge from “chatbot” to “agent”, and it connects well to real software development.
+
 ## Core workshop path
 
 These are the main chapters:
@@ -132,15 +157,11 @@ Generate spoken audio from text and build the other half of a voice interface.
 
 Create short music clips from text prompts.
 
-### 11. [Image editing and inpainting](11-image-editing-and-inpainting)
-
-Edit part of an image with a mask and a prompt, instead of generating a whole new picture.
-
-### 12. [Tool calling](12-tool-calling)
+### 11. [Tool calling](11-tool-calling)
 
 Let a local language model call a Python tool to answer a real-world question with live data.
 
-### 13. [Open-vocabulary object detection](13-open-vocabulary-detection)
+### 12. [Open-vocabulary object detection](12-open-vocabulary-detection)
 
 Detect objects in an image by describing them in natural language.
 

@@ -1,6 +1,7 @@
 import ollama
 
 MODEL_NAME = "qwen3:4b"
+# This role instruction is sent with every request; the model itself is unchanged.
 SYSTEM_PROMPT = "You are a creative assistant for a high school AI workshop. Keep your answers short, playful, and easy to read."
 USER_PROMPT = "Write a short funny story about a robot who wants to become a baker."
 

@@ -9,6 +9,7 @@ STORY_IDEA = "A robot falls in love with a toaster."
 
 
 def clean_model_text(text: str) -> str:
+    # Some models expose reasoning before </think>; keep the student output focused.
     if "</think>" in text:
         text = text.split("</think>", 1)[1]
     return text.strip()
@@ -79,6 +80,7 @@ Now write part {i}: {abstract}
     )
 
     chapter_text = clean_model_text(response_chapter["message"]["content"])
+    # This is the "memory" of the pipeline; the model only sees what we send it.
     full_story_so_far += "\n\n" + chapter_text
 
     print()

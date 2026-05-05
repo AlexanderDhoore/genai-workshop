@@ -8,7 +8,7 @@
 # PyTorch is included explicitly so the VM template can be provisioned in one step.
 
 accelerate>=1.7,<2
-diffusers @ git+https://github.com/huggingface/diffusers.git@46bd0057308a6b3f270d235fef97d5d958433967
+diffusers>=0.35,<1
 gradio>=5.33,<6
 huggingface-hub>=0.32,<1
 kokoro>=0.9,<1

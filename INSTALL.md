@@ -78,8 +78,7 @@ Note:
 - this is enough on its own, no separate PyTorch step is needed
 - `requirements.txt` includes a tested PyTorch version directly
 - on Linux, that install pulls a large CUDA-enabled Torch stack, which is exactly why it should be done while preparing the VM template, not during the workshop
-- the workshop currently installs `diffusers` from GitHub, not from the latest PyPI release
-- reason: newer image-model support moves quickly, and this matched the verified workshop environment on 2026-03-06
+- the workshop uses the PyPI `diffusers` package now, not a GitHub checkout, so dependency installation is faster and less fragile on fresh classroom VMs
 
 ## Recommended Ollama models to pre-pull
 
@@ -168,7 +167,7 @@ mkdir -p "$HF_HOME"
 Practical finding from testing on this VM:
 
 - `Tongyi-MAI/Z-Image-Turbo` looked attractive, but it was not a good default on the earlier 32 GB root disk
-- it required the development version of `diffusers`
+- it required the development version of `diffusers` during earlier testing
 - after the VM disk was expanded to 128 GB, it became practical again
 - its download is large, so it should be pre-downloaded onto the workshop VM image
 - on the RTX 4000 SFF Ada 20 GB GPU, it did not fit with a naive `.to("cuda")` load

@@ -60,14 +60,11 @@ A **virtual environment**, or **venv**, is just a self-contained Python setup fo
 It keeps the workshop libraries together so they do not get mixed up with other Python packages on the system.
 
 If your environment is already prepared, you usually only need to select the correct Python interpreter in VS Code.
-
-If you need to create it manually, the commands look like this:
+In the terminal, you can activate it like this:
 
 ```bash
 cd /root/genai-workshop
-python3.11 -m virtualenv .venv
 source .venv/bin/activate
-pip install -r requirements.txt
 ```
 
 ## How to work through the workshop

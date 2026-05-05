@@ -14,7 +14,7 @@ The goal is simple:
 Use:
 
 - Linux with NVIDIA drivers working
-- Python 3.11
+- Python 3.11, preferably installed and managed with `uv`
 - Ollama installed system-wide
 - one shared virtual environment at `/root/genai-workshop/.venv`
 
@@ -23,6 +23,8 @@ Important:
 - Do not use Python 3.13 for the shared workshop environment
 - At least one workshop dependency, `kokoro`, failed to install on Python 3.13 during verification
 - Python 3.11 worked for dependency resolution
+- On GPU VM templates, do not casually run `apt upgrade` immediately before class unless the host NVIDIA driver and container userspace packages are upgraded together
+- A host/container NVIDIA driver mismatch will break `nvidia-smi` and CUDA
 
 ## System packages
 
@@ -30,14 +32,26 @@ Install these outside the Python environment:
 
 ```bash
 apt-get update
-apt-get install -y ffmpeg espeak-ng python3-pip python3-virtualenv
+apt-get install -y ca-certificates curl git ffmpeg espeak-ng libsndfile1 build-essential pkg-config zstd
 ```
 
 Why:
 
 - `ffmpeg` is useful for Whisper and audio processing
 - `espeak-ng` is useful for text-to-speech related packages
-- `python3-virtualenv` lets us create a Python 3.11 environment even when `python3.11 -m venv` is not available
+- `libsndfile1` is useful for audio IO packages
+- `build-essential` and `pkg-config` are useful fallbacks for Python packages with native extensions
+- `zstd` is needed by the Ollama installer on some minimal images
+
+## uv and Python 3.11
+
+Install `uv` and let it install Python 3.11:
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+export PATH="/root/.local/bin:$PATH"
+uv python install 3.11
+```
 
 ## Ollama
 
@@ -56,11 +70,11 @@ systemctl is-active ollama
 
 ## Shared Python environment
 
-Create the shared environment with Python 3.11:
+Create the shared environment with `uv`:
 
 ```bash
 cd /root/genai-workshop
-python3.11 -m virtualenv .venv
+uv venv --python 3.11 .venv
 source .venv/bin/activate
 ```
 
@@ -70,7 +84,7 @@ Install the shared workshop packages:
 
 ```bash
 source /root/genai-workshop/.venv/bin/activate
-pip install -r /root/genai-workshop/requirements.txt
+uv pip install -r /root/genai-workshop/requirements.txt
 ```
 
 Note:
@@ -218,3 +232,19 @@ nvidia-smi
 ```
 
 That does not prove every heavy model is fully warmed, but it catches broken Python syntax, missing Ollama models, and GPU visibility problems quickly.
+
+## 2026-05-05 verified template
+
+The workshop template that was prepared for the high-school GenAI workshop used:
+
+- template VM: `10.26.0.102`
+- hostname: `genai-260505-older`
+- code verification commit: `7d9a7bd` (later documentation-only commits are safe)
+- Python: `3.11.15` from `uv`
+- Torch: `2.10.0+cu128`
+- GPU: NVIDIA RTX 4000 SFF Ada Generation
+- Ollama: installed, enabled, active
+- pre-pulled Ollama models: `qwen3:4b`, `qwen3:1.7b`, `qwen3-vl:4b`, `qwen3-vl:2b`, `gemma3:1b`
+- prewarmed Hugging Face / audio models: Whisper base, Kokoro, `segmind/SSD-1B`, MusicGen small, MusicGen medium, Grounding DINO base
+
+The solution scripts and Gradio app functions were smoke-tested successfully before cloning.
